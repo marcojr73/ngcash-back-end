@@ -1,4 +1,6 @@
 import { faker } from "@faker-js/faker"
+import jwt from "jsonwebtoken"
+import {prisma} from "../../src/config/database.js"
 
 function createValidAuthData(){
     return {
@@ -14,7 +16,33 @@ function createInValidAuthData(){
     }
 }
 
+function generateTokenTest(accountId: number){
+    const {KEYJWT} = process.env
+    return jwt.sign({ accountId }, KEYJWT, { expiresIn: "1d"})
+}
+
+function generateIncorrectTokenTest(){
+    return faker.finance.bitcoinAddress.toString()
+}
+
+async function createUser(){
+    const account = await prisma.accounts.create({
+        data: {}
+    })
+    const user = await prisma.users.create({
+        data: {
+            userName: faker.name.firstName("male"),
+            password: "4815162342",
+            accountId: account.id
+        }
+    })
+    return user.accountId
+}
+
 export {
     createValidAuthData,
-    createInValidAuthData
+    createInValidAuthData,
+    generateTokenTest,
+    createUser,
+    generateIncorrectTokenTest
 }
