@@ -19,8 +19,16 @@ function unauthorized(message?: string){
     }   
 }
 
+function conflict(message?: string){
+    throw {
+        status: 409,
+        message
+    }
+}
+
 export {
     unprocessableEntity,
     notFound,
-    unauthorized
+    unauthorized,
+    conflict
 }

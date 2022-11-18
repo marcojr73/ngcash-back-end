@@ -3,12 +3,12 @@ import { IauthData } from "../models/models"
 import { encryptPassword, generateToken, isregisteredUserName, isUserNameAlreadyInUse, registerNewUser, verifyPasswordIsCorrect } from "../services/authService.js"
 
 async function SignUp(req: Request, res: Response){
-    let password: string = req.body
-    const userName: string = req.body
+    let password: string = req.body.password
+    const userName: string = req.body.userName
     await isUserNameAlreadyInUse(userName)
     password = encryptPassword(password)
     await registerNewUser({userName, password})
-    res.status(200).send("created")
+    res.status(201).send("created")
 }
 
 async function SignIn(req: Request, res: Response){

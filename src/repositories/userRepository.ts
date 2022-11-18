@@ -3,7 +3,7 @@ import { IauthData } from "../models/models.js"
 
 async function findByUserName(userName: string){
     return await prisma.users.findFirst({
-        where: {userName}
+        where: {userName: userName}
     })
 }
 
