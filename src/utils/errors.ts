@@ -5,6 +5,22 @@ function unprocessableEntity(message?: string){
     }
 }
 
+function notFound(message?: string){
+    throw {
+        status: 404,
+        message
+    }
+}
+
+function unauthorized(message?: string){
+    throw {
+        status: 401,
+        message
+    }   
+}
+
 export {
-    unprocessableEntity
+    unprocessableEntity,
+    notFound,
+    unauthorized
 }

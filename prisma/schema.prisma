@@ -18,7 +18,7 @@ model Users {
 
 model Accounts {
   id                        Int                 @id @default(autoincrement())
-  balance                   Int                 @unique @default(10000)
+  balance                   Int                 @default(10000)
   Users                     Users[]
   transactionDebited        Transactions[]      @relation("credited")
 	transactionCredited       Transactions[]      @relation("debited")
