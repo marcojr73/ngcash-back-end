@@ -20,7 +20,15 @@ async function insertDbUserAndCreateAccount(data: IauthData){
     })
 }
 
+async function findUserNameByAccountId(accountId: number){
+    return await prisma.users.findFirst({
+        select: {userName: true},
+        where: {accountId}
+    })
+}
+
 export {
     findByUserName,
-    insertDbUserAndCreateAccount
+    insertDbUserAndCreateAccount,
+    findUserNameByAccountId
 }

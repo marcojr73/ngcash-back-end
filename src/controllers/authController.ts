@@ -15,7 +15,7 @@ async function SignIn(req: Request, res: Response){
     const {userName, password}: IauthData = req.body
     const user = await isregisteredUserName(userName)
     await verifyPasswordIsCorrect(user.password, password)
-    const token = generateToken(user.id)
+    const token = generateToken(user.accountId)
     res.status(200).send(token)
 }
 
