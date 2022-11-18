@@ -28,9 +28,9 @@ async function verifyPasswordIsCorrect(passCrypt: string, password: string){
     if(!ans) unauthorized("password is incorrect")
 }
 
-function generateToken(userId: number){
+function generateToken(accountId: number){
     const {KEYJWT} = process.env
-    return jwt.sign({ userId }, KEYJWT, { expiresIn: "1d"})
+    return jwt.sign({ accountId }, KEYJWT, { expiresIn: "1d"})
 }
 
 export {
