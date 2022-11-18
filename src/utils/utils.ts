@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import jwt from "jsonwebtoken"
-import { unauthorized } from "./errors.js"
+import { findByUserName } from "../repositories/userRepository.js"
+import { notFound, unauthorized } from "./errors.js"
 
 async function validateTokenAndGetAccount(token: string){
     if (token === undefined) unauthorized("token not send")
@@ -13,7 +14,14 @@ async function validateTokenAndGetAccount(token: string){
     return accountId
 }
 
+async function isregisteredUserName(userName: string){
+    const isRegistered = await findByUserName(userName)
+    if(!isRegistered) notFound("not exist userName for this account")
+    return isRegistered
+}
+
 
 export {
-    validateTokenAndGetAccount
+    validateTokenAndGetAccount,
+    isregisteredUserName
 }

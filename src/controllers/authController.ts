@@ -1,6 +1,7 @@
 import { Request, Response } from "express"
 import { IauthData } from "../models/models"
-import { encryptPassword, generateToken, isregisteredUserName, isUserNameAlreadyInUse, registerNewUser, verifyPasswordIsCorrect } from "../services/authService.js"
+import { encryptPassword, generateToken, isUserNameAlreadyInUse, registerNewUser, verifyPasswordIsCorrect } from "../services/authService.js"
+import { isregisteredUserName } from "../utils/utils.js"
 
 async function SignUp(req: Request, res: Response){
     let password: string = req.body.password

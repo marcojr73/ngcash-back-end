@@ -3,6 +3,12 @@ interface IauthData {
     password: string
 }
 
+interface InewTransaction {
+    userName: string
+    value: number
+}
+
 export {
-    IauthData
+    IauthData,
+    InewTransaction
 }
