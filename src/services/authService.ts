@@ -1,12 +1,12 @@
 import { findByUserName, insertDbUserAndCreateAccount } from "../repositories/userRepository.js"
-import { notFound, unauthorized } from "../utils/errors.js"
+import { conflict, notFound, unauthorized } from "../utils/errors.js"
 import bcrypt from "bcrypt"
 import { IauthData } from "../models/models.js"
 import jwt from "jsonwebtoken"
 
 async function isUserNameAlreadyInUse(userName: string){
     const isAvailable = await findByUserName(userName)
-    if(isAvailable) notFound("this userName already in use")
+    if(isAvailable) conflict("this userName already in use")
 }
 
 function encryptPassword(password: string){
