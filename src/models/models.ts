@@ -1,6 +1,6 @@
 interface IauthData {
-    userName: String
-    password: String
+    userName: string
+    password: string
 }
 
 export {
