@@ -1,5 +1,5 @@
 import { findByUserName, insertDbUserAndCreateAccount } from "../repositories/userRepository.js"
-import { conflict, notFound, unauthorized } from "../utils/errors.js"
+import { conflict, unauthorized } from "../utils/errors.js"
 import bcrypt from "bcrypt"
 import { IauthData } from "../models/models.js"
 import jwt from "jsonwebtoken"
@@ -17,12 +17,6 @@ async function registerNewUser(data: IauthData){
     await insertDbUserAndCreateAccount(data) 
 }
 
-async function isregisteredUserName(userName: string){
-    const isRegistered = await findByUserName(userName)
-    if(!isRegistered) notFound("not exist userName for this account")
-    return isRegistered
-}
-
 async function verifyPasswordIsCorrect(passCrypt: string, password: string){
     const ans = bcrypt.compareSync(password, passCrypt)
     if(!ans) unauthorized("password is incorrect")
@@ -37,7 +31,6 @@ export {
     isUserNameAlreadyInUse,
     encryptPassword,
     registerNewUser,
-    isregisteredUserName,
     verifyPasswordIsCorrect,
     generateToken
 }

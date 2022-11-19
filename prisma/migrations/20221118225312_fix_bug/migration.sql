@@ -22,7 +22,7 @@ CREATE TABLE "Transactions" (
     "debitedAccountId" INTEGER NOT NULL,
     "creditedAccountId" INTEGER NOT NULL,
     "value" INTEGER NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Transactions_pkey" PRIMARY KEY ("id")
 );
@@ -30,14 +30,11 @@ CREATE TABLE "Transactions" (
 -- CreateIndex
 CREATE UNIQUE INDEX "Users_userName_key" ON "Users"("userName");
 
--- CreateIndex
-CREATE UNIQUE INDEX "Accounts_balance_key" ON "Accounts"("balance");
-
 -- AddForeignKey
 ALTER TABLE "Users" ADD CONSTRAINT "Users_accountId_fkey" FOREIGN KEY ("accountId") REFERENCES "Accounts"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Transactions" ADD CONSTRAINT "Transactions_debitedAccountId_fkey" FOREIGN KEY ("debitedAccountId") REFERENCES "Accounts"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Transactions" ADD CONSTRAINT "Transactions_creditedAccountId_fkey" FOREIGN KEY ("creditedAccountId") REFERENCES "Accounts"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Transactions" ADD CONSTRAINT "Transactions_creditedAccountId_fkey" FOREIGN KEY ("creditedAccountId") REFERENCES "Accounts"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Transactions" ADD CONSTRAINT "Transactions_debitedAccountId_fkey" FOREIGN KEY ("debitedAccountId") REFERENCES "Accounts"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

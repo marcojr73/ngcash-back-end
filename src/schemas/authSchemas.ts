@@ -1,4 +1,4 @@
-import joi from "joi";
+import joi from "joi"
 
 const authRegex = /(?=.*?[A-Z])(?=.*?[0-9]){8}/
 

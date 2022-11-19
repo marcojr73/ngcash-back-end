@@ -26,9 +26,17 @@ function conflict(message?: string){
     }
 }
 
+function badRequest(message?: string){
+    throw {
+        status: 400,
+        message
+    }
+}
+
 export {
     unprocessableEntity,
     notFound,
     unauthorized,
-    conflict
+    conflict,
+    badRequest
 }

@@ -3,6 +3,20 @@ interface IauthData {
     password: string
 }
 
+interface InewTransaction {
+    userName: string
+    value: number
+}
+
+interface Ifilters {
+    initial: string
+    final: string
+    type: string
+    // type: "cashin" | "cashout"
+}
+
 export {
-    IauthData
+    IauthData,
+    InewTransaction,
+    Ifilters
 }
