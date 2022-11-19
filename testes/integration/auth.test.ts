@@ -9,7 +9,9 @@ dotenv.config()
 console.log("tests running on base" + process.env.DATABASE_URL)
 
 beforeEach(async ()=> {
+    await prisma.transactions.deleteMany({where: {}})
     await prisma.users.deleteMany({where: {}})
+    await prisma.accounts.deleteMany({where: {}})
 })
 
 describe("sign-up", ()=> {

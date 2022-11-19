@@ -36,7 +36,18 @@ async function createUser(){
             accountId: account.id
         }
     })
-    return user.accountId
+    return user
+}
+
+function createFakeUser(){
+    return faker.name.firstName("male")
+}
+
+function createDataNewTransaction(userName: string){
+    return {
+        userName,
+        value: 100
+    }
 }
 
 export {
@@ -44,5 +55,7 @@ export {
     createInValidAuthData,
     generateTokenTest,
     createUser,
-    generateIncorrectTokenTest
+    generateIncorrectTokenTest,
+    createDataNewTransaction,
+    createFakeUser
 }

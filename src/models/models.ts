@@ -8,7 +8,15 @@ interface InewTransaction {
     value: number
 }
 
+interface Ifilters {
+    initial: string
+    final: string
+    type: string
+    // type: "cashin" | "cashout"
+}
+
 export {
     IauthData,
-    InewTransaction
+    InewTransaction,
+    Ifilters
 }

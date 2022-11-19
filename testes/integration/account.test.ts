@@ -9,16 +9,16 @@ dotenv.config()
 console.log("tests running on base" + process.env.DATABASE_URL)
 
 beforeEach(async ()=> {
+    await prisma.transactions.deleteMany({where: {}})
     await prisma.users.deleteMany({where: {}})
     await prisma.accounts.deleteMany({where: {}})
 })
 
 describe("account", ()=> {
     it("should return details account", async () => {
-        const accountId = await factory.createUser()
-        const token = factory.generateTokenTest(accountId)
+        const user = await factory.createUser()
+        const token = factory.generateTokenTest(user.accountId)
         const response = await supertest(app).get("/account").auth(token, {type: "bearer"})
-        console.log(response.body)
         expect(response.statusCode).toBe(200)
     })
 
