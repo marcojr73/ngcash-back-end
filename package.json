@@ -7,7 +7,7 @@
   "scripts": {
     "docker:dev": "npx prisma migrate dev && nodemon src/server.ts",
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i",
-    "start": "nox prisma migrate deploy && tsc  && node dist/src/server.js",
+    "start": "npx prisma migrate deploy && tsc  && node dist/src/server.js",
     "dev": "nodemon src/server.ts"
   },
   "keywords": [],
