@@ -8,4 +8,4 @@ EXPOSE 5000
 
 RUN npm i
 
-CMD ["npm", "run", "dev"]   
+CMD ["npm", "run", "docker:dev"]   

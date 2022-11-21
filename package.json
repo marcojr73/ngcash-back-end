@@ -7,6 +7,7 @@
   "scripts": {
     "docker:build": "docker build -t ngcash .",
     "docker:run": "docker run -p 5000:5000 ngcash",
+    "docker:dev": "npx prisma migrate dev && nodemon src/server.ts",
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i",
     "build": "tsc && prisma migrate deploy",
     "start": "npx prisma migrate deploy && tsc  && node dist/src/server.js",

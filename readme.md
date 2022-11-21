@@ -32,6 +32,25 @@ Instale meu projeto e configure o .env como no exemplo
 
 ***
 
+## Docker
+
+- Com o docker você pode rodar todo o ambiente sem precisar instalar nenhum programa
+- O front end estará disponivel na porta 3000, e a API na porta 5000
+- Basta executar o comando na raiz do projeto
+
+```bash
+  docker-compose up --build
+```
+
+- Para encerrar a execução execute na raiz
+
+```bash
+  docker-compose down
+```
+
+***
+
+
 ##	 Tecnologias e Conceitos
 
 - Node.js
@@ -39,6 +58,7 @@ Instale meu projeto e configure o .env como no exemplo
 - Express
 - ORM (prisma)
 - Autenticação por token JWT
+- Docker, Docker-compose
 - Layered architecture
 - Bcrypt
 - JOI
