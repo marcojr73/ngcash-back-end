@@ -5,10 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "docker:dev": "npx prisma migrate dev && nodemon src/server.ts",
+    "docker:build": "docker build -t ngcash .",
+    "docker:run": "docker run -p 5000:5000 ngcash",
     "test": "dotenv -e .env.test prisma migrate dev && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -- -i",
+    "build": "tsc && prisma migrate deploy",
     "start": "npx prisma migrate deploy && tsc  && node dist/src/server.js",
-    "dev": "nodemon src/server.ts"
+    "dev": "nodemon src/server.ts",
+    "migrate": "npx prisma migrate dev"
   },
   "keywords": [],
   "author": "",
