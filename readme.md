@@ -2,7 +2,7 @@
 # NGCASH
 
 <p align="center">
-   <img width=350 src="./src/assets/images/logo.gif"/>
+   <img width=350 src="https://raw.githubusercontent.com/marcojr73/ngcash-front-end/main/src/assets/images/logo.gif"/>
 </p>
 
 
