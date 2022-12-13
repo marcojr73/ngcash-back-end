@@ -9,7 +9,6 @@
 - Este projeto é inspirado na [NGCASH](https://ng.cash/), uma plataforma com o propósito de levar o controle e independência da vida financeira as novas gerações
 - Você pode fazer o login com um nome de usuário e senha e começar a fazer suas transferências para outros usuários da aplicação
 
-- [veja meu deploy na heroku aqui](https://ngcash-api.herokuapp.com/)
 - [veja meu repositório front end dessa aplicação aqui](https://github.com/marcojr73/ngcash-front-end)
 
 ***
